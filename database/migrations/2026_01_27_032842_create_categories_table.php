@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->bigInteger('user_id')->default(0)->references('id')->on('users'); 
             $table->string('name')->default('None');
+            $table->bigInteger('amount')->default(0);
         });
     }
 

@@ -52,6 +52,8 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->label('Category Name')->searchable()->sortable(),
+                TextColumn::make('amount')->label('Amount')->formatStateUsing(fn($state) => number_format($state,2,'.'))
+                
             ])
             ->filters([
                 //
