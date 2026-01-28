@@ -24,9 +24,11 @@ class UserPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            
             ->id('user')
             ->path('user')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Indigo,
             ])
@@ -39,7 +41,7 @@ class UserPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
-            ])
+            ])->databaseNotifications()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

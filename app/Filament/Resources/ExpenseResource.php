@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\ExpenseExporter;
 use App\Filament\Resources\ExpenseResource\Pages;
 use App\Filament\Resources\ExpenseResource\RelationManagers;
 use App\Models\Expense;
@@ -64,6 +65,9 @@ class ExpenseResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+            ])
+            ->headerActions([
+                \Filament\Tables\Actions\ExportAction::make()->exporter(ExpenseExporter::class),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
