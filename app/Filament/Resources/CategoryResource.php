@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Exports\CategoriesExporter;
+use App\Filament\Imports\CategoriesImporter;
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Categories;
@@ -53,13 +54,14 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->label('Category Name')->searchable()->sortable(),
-                TextColumn::make('amount')->label('Amount')->formatStateUsing(fn($state) => number_format($state,2,'.'))->sortable(),
+                TextColumn::make('amount')->label('Total Expense')->formatStateUsing(fn($state) => number_format($state,2,'.'))->sortable(),
                 
             ])
             ->filters([
                 //
             ])->headerActions([
                    \Filament\Tables\Actions\ExportAction::make()->exporter(CategoriesExporter::class),
+                   
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

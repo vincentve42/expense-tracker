@@ -15,7 +15,7 @@ class CategoriesExporter extends Exporter
     {
         return [
             ExportColumn::make("name")->label("Category Name"),
-            ExportColumn::make("amount")->label("Amount"),
+            ExportColumn::make("amount")->label("Total Expense"),
         ];
     }
 
